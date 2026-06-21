@@ -1,0 +1,2015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Polyphony Studios · Devon Pruett · Miami Piano Services</title>
+  <meta name="description" content="Private Piano Instruction, Piano Tuning & Repair, Music Engineering, and Pre-Purchase Piano Consultation in Miami, FL. Devon Pruett — University of Miami Graduate.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    /* ═══════════════════════════════════════════
+       RESET & ROOT
+    ═══════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ivory:        #f7f4ee;
+      --ivory-dark:   #ece7db;
+      --black:        #0a0a0a;
+      --black-soft:   #161616;
+      --black-mid:    #1e1e1e;
+      --gold:         #c8a96e;
+      --gold-light:   #e0cfa0;
+      --gold-dim:     #9a7a46;
+      --mahogany:     #4a2c1a;
+      --gray:         #6b6b6b;
+      --gray-light:   #9b9b9b;
+      --white:        #ffffff;
+
+      --font-serif:   'Playfair Display', Georgia, serif;
+      --font-sans:    'Inter', system-ui, sans-serif;
+
+      --radius-sm:    8px;
+      --radius-md:    16px;
+      --radius-lg:    24px;
+
+      --section-v:    100px;
+      --container:    1160px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--ivory);
+      color: var(--black);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul, ol { list-style: none; }
+    button { cursor: pointer; background: none; border: none; font: inherit; }
+
+    /* ─── Utilities ─── */
+    .container {
+      width: 100%;
+      max-width: var(--container);
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    .section-sub {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.7;
+      max-width: 580px;
+      margin-top: 16px;
+    }
+
+    .gold-rule {
+      width: 56px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-bottom: 24px;
+    }
+
+    /* ─── Reveal animation ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ═══════════════════════════════════════════
+       NAVIGATION
+    ═══════════════════════════════════════════ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: background 0.35s ease, box-shadow 0.35s ease;
+      padding: 0;
+    }
+
+    .nav.scrolled {
+      background: rgba(10,10,10,0.97);
+      box-shadow: 0 1px 0 rgba(200,169,110,0.15);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      padding: 0 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .nav-logo {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nav-logo-main {
+      font-family: var(--font-serif);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--ivory);
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+
+    .nav-logo-sub {
+      font-size: 0.68rem;
+      font-weight: 400;
+      color: var(--gold);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: rgba(247,244,238,0.7);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--ivory); }
+
+    .nav-links .nav-cta {
+      background: transparent;
+      border: 1px solid rgba(200,169,110,0.5);
+      color: var(--gold);
+      padding: 8px 20px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      transition: all 0.2s;
+    }
+
+    .nav-links .nav-cta:hover {
+      background: var(--gold);
+      color: var(--black);
+      border-color: var(--gold);
+    }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 4px;
+    }
+
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--ivory);
+      border-radius: 2px;
+      transition: all 0.25s;
+    }
+
+    /* ═══════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      background: var(--black);
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('devon-teaching.png');
+      background-size: cover;
+      background-position: 35% 22%;
+      transform: scale(1.04);
+      transition: transform 8s ease-out;
+    }
+
+    .hero-bg.loaded { transform: scale(1); }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.35) 60%, rgba(10,10,10,0.1) 100%),
+        linear-gradient(to top, rgba(10,10,10,0.8) 0%, transparent 50%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 40px 80px;
+      max-width: 720px;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+    }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+      color: var(--ivory);
+    }
+
+    .hero-title em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 1.5vw, 1.15rem);
+      color: rgba(247,244,238,0.7);
+      line-height: 1.65;
+      margin-top: 22px;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 36px;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--gold);
+      color: var(--black);
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: all 0.22s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(200,169,110,0.35);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--ivory);
+      border: 1px solid rgba(247,244,238,0.3);
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.22s ease;
+    }
+
+    .btn-outline:hover {
+      background: rgba(247,244,238,0.08);
+      border-color: rgba(247,244,238,0.6);
+      transform: translateY(-2px);
+    }
+
+    .btn-gold-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid rgba(200,169,110,0.5);
+      border-radius: 100px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.22s ease;
+    }
+
+    .btn-gold-outline:hover {
+      background: rgba(200,169,110,0.1);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      right: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      color: rgba(247,244,238,0.4);
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      z-index: 2;
+    }
+
+    .hero-scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, transparent, rgba(200,169,110,0.5));
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
+    }
+
+    /* ═══════════════════════════════════════════
+       TRUST STRIP
+    ═══════════════════════════════════════════ */
+    .trust {
+      background: var(--black-soft);
+      padding: 0;
+      border-top: 1px solid rgba(200,169,110,0.12);
+    }
+
+    .trust-inner {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+
+    .trust-item {
+      padding: 36px 32px;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      border-right: 1px solid rgba(255,255,255,0.05);
+      transition: background 0.2s;
+    }
+
+    .trust-item:last-child { border-right: none; }
+    .trust-item:hover { background: rgba(255,255,255,0.02); }
+
+    .trust-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background: rgba(200,169,110,0.1);
+      border: 1px solid rgba(200,169,110,0.2);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+    }
+
+    .trust-icon svg { width: 22px; height: 22px; }
+
+    .trust-copy {}
+
+    .trust-copy h3 {
+      font-family: var(--font-serif);
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--ivory);
+      line-height: 1.3;
+    }
+
+    .trust-copy p {
+      font-size: 0.78rem;
+      color: var(--gray-light);
+      margin-top: 4px;
+      line-height: 1.5;
+    }
+
+    /* ═══════════════════════════════════════════
+       ABOUT
+    ═══════════════════════════════════════════ */
+    .about {
+      padding: var(--section-v) 0;
+      background: var(--ivory);
+    }
+
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-photo-wrap {
+      position: relative;
+    }
+
+    .about-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 32px 80px rgba(0,0,0,0.18);
+    }
+
+    .about-photo-badge {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      background: var(--black-soft);
+      border: 1px solid rgba(200,169,110,0.25);
+      border-radius: 16px;
+      padding: 20px 24px;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+    }
+
+    .about-photo-badge-num {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .about-photo-badge-label {
+      font-size: 0.72rem;
+      color: rgba(247,244,238,0.55);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    .about-text {}
+
+    .about-text .section-title {
+      color: var(--black);
+    }
+
+    .about-body {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .about-body p {
+      font-size: 1.02rem;
+      color: var(--gray);
+      line-height: 1.75;
+    }
+
+    .about-quote {
+      margin-top: 32px;
+      padding: 24px 28px;
+      border-left: 3px solid var(--gold);
+      background: rgba(200,169,110,0.06);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+    }
+
+    .about-quote p {
+      font-family: var(--font-serif);
+      font-size: 1.08rem;
+      font-style: italic;
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    .about-quote cite {
+      display: block;
+      font-style: normal;
+      font-size: 0.78rem;
+      color: var(--gold-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 10px;
+    }
+
+    .about-credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .cred-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: var(--ivory-dark);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--gray);
+    }
+
+    .cred-pill svg {
+      width: 14px;
+      height: 14px;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    /* ═══════════════════════════════════════════
+       SERVICES
+    ═══════════════════════════════════════════ */
+    .services {
+      padding: var(--section-v) 0;
+      background: var(--black);
+    }
+
+    .services-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+
+    .services-header .section-title {
+      color: var(--ivory);
+    }
+
+    .services-header .section-sub {
+      margin: 16px auto 0;
+      color: var(--gray-light);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.04);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .service-card {
+      background: var(--black-soft);
+      padding: 48px 40px;
+      position: relative;
+      transition: background 0.25s;
+    }
+
+    .service-card:hover {
+      background: var(--black-mid);
+    }
+
+    .service-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 3px;
+      height: 0;
+      background: var(--gold);
+      transition: height 0.35s ease;
+    }
+
+    .service-card:hover::after { height: 100%; }
+
+    .service-num {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: rgba(200,169,110,0.12);
+      line-height: 1;
+      margin-bottom: 20px;
+      transition: color 0.25s;
+    }
+
+    .service-card:hover .service-num {
+      color: rgba(200,169,110,0.22);
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(200,169,110,0.08);
+      border: 1px solid rgba(200,169,110,0.18);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+
+    .service-icon svg { width: 24px; height: 24px; }
+
+    .service-title {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: var(--ivory);
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+
+    .service-desc {
+      font-size: 0.92rem;
+      color: var(--gray-light);
+      line-height: 1.75;
+    }
+
+    /* ═══════════════════════════════════════════
+       ANIMATION / STUDIO SECTION
+    ═══════════════════════════════════════════ */
+    .anim-section {
+      background: var(--black);
+    }
+
+    .anim-container {
+      height: 300vh;
+      position: relative;
+    }
+
+    .anim-sticky {
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .anim-sticky-inner {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 64px;
+      align-items: center;
+    }
+
+    .anim-text-side {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .anim-section-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 14px;
+    }
+
+    .anim-gold-rule {
+      width: 56px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+      margin-bottom: 28px;
+    }
+
+    .anim-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 600;
+      color: var(--ivory);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 18px;
+    }
+
+    .anim-quote {
+      font-size: 1rem;
+      color: var(--gray-light);
+      line-height: 1.72;
+      max-width: 420px;
+      min-height: 3.5rem;
+    }
+
+    .anim-sub {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 28px;
+    }
+
+    .anim-progress {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .anim-progress-track {
+      width: 100px;
+      height: 2px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .anim-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--gold);
+      border-radius: 2px;
+      transition: width 0.1s linear;
+    }
+
+    .anim-progress-label {
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.2);
+    }
+
+    .anim-image-side {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .anim-image-frame {
+      position: relative;
+      width: 100%;
+      max-width: 280px;
+      border: 1px solid rgba(200,169,110,0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.6), 0 0 0 1px rgba(200,169,110,0.06);
+    }
+
+    #animFrame {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+    }
+
+    /* ═══════════════════════════════════════════
+       GALLERY
+    ═══════════════════════════════════════════ */
+    .gallery {
+      padding: var(--section-v) 0;
+      background: var(--ivory);
+    }
+
+    .gallery-editorial {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .gallery-editorial-image {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 32px 80px rgba(0,0,0,0.16);
+    }
+
+    .gallery-editorial-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      transition: transform 0.6s ease;
+    }
+
+    .gallery-editorial-image:hover .gallery-editorial-img {
+      transform: scale(1.03);
+    }
+
+    .gallery-editorial-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px;
+      background: linear-gradient(to top, rgba(10,10,10,0.65) 0%, transparent 100%);
+    }
+
+    .gallery-editorial-caption span {
+      font-size: 0.7rem;
+      color: rgba(247,244,238,0.55);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* ═══════════════════════════════════════════
+       REVIEWS STRIP
+    ═══════════════════════════════════════════ */
+    .reviews {
+      padding: 72px 0;
+      background: var(--black-soft);
+      border-top: 1px solid rgba(200,169,110,0.1);
+      border-bottom: 1px solid rgba(200,169,110,0.1);
+    }
+
+    .reviews-header {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    .reviews-score {
+      flex-shrink: 0;
+    }
+
+    .reviews-score-num {
+      font-family: var(--font-serif);
+      font-size: 4rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+
+    .reviews-score-stars {
+      font-size: 1rem;
+      color: var(--gold);
+      letter-spacing: 3px;
+      margin-top: 4px;
+    }
+
+    .reviews-score-label {
+      font-size: 0.75rem;
+      color: var(--gray-light);
+      margin-top: 6px;
+    }
+
+    .reviews-divider {
+      width: 1px;
+      height: 60px;
+      background: rgba(255,255,255,0.1);
+    }
+
+    .reviews-desc .section-title {
+      color: var(--ivory);
+      font-size: 1.8rem;
+    }
+
+    .reviews-desc p {
+      font-size: 0.9rem;
+      color: var(--gray-light);
+      margin-top: 8px;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .review-card {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-md);
+      padding: 28px;
+      transition: border-color 0.2s;
+    }
+
+    .review-card:hover {
+      border-color: rgba(200,169,110,0.2);
+    }
+
+    .review-stars {
+      color: var(--gold);
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      margin-bottom: 14px;
+    }
+
+    .review-text {
+      font-size: 0.88rem;
+      color: rgba(247,244,238,0.75);
+      line-height: 1.7;
+      font-style: italic;
+    }
+
+    .review-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .review-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(200,169,110,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-serif);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .review-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ivory);
+    }
+
+    .review-date {
+      font-size: 0.72rem;
+      color: var(--gray-light);
+      margin-top: 2px;
+    }
+
+    /* ═══════════════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════════════ */
+    .contact {
+      padding: var(--section-v) 0;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 60% at 80% 50%, rgba(200,169,110,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .contact-text .section-title {
+      color: var(--ivory);
+    }
+
+    .contact-text .section-sub {
+      color: var(--gray-light);
+    }
+
+    .contact-detail {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .contact-detail-icon {
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(200,169,110,0.25);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      flex-shrink: 0;
+    }
+
+    .contact-detail-icon svg { width: 18px; height: 18px; }
+
+    .contact-detail-label {
+      font-size: 0.72rem;
+      color: var(--gray-light);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .contact-detail-value {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--ivory);
+      margin-top: 2px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 22px 28px;
+      border-radius: 16px;
+      transition: all 0.22s ease;
+      border: 1px solid transparent;
+    }
+
+    .contact-btn-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .contact-btn-icon svg { width: 22px; height: 22px; }
+
+    .contact-btn-label {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .contact-btn-value {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    .contact-btn.call-btn {
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.07);
+      color: var(--ivory);
+    }
+
+    .contact-btn.call-btn:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+    }
+
+    .contact-btn.call-btn .contact-btn-icon {
+      background: rgba(200,169,110,0.1);
+      color: var(--gold);
+    }
+
+    .contact-btn.wa-btn {
+      background: rgba(37,211,102,0.06);
+      border-color: rgba(37,211,102,0.15);
+      color: #e0f9ea;
+    }
+
+    .contact-btn.wa-btn:hover {
+      background: rgba(37,211,102,0.12);
+      transform: translateY(-2px);
+    }
+
+    .contact-btn.wa-btn .contact-btn-icon {
+      background: rgba(37,211,102,0.1);
+      color: #25d366;
+    }
+
+    .contact-btn.tt-btn {
+      background: rgba(0,109,182,0.07);
+      border-color: rgba(0,109,182,0.15);
+      color: rgba(247,244,238,0.85);
+    }
+
+    .contact-btn.tt-btn:hover {
+      background: rgba(0,109,182,0.14);
+      transform: translateY(-2px);
+    }
+
+    .contact-btn.tt-btn .contact-btn-icon {
+      background: rgba(0,109,182,0.12);
+      color: #4da6e8;
+    }
+
+    .contact-btn.card-btn {
+      background: rgba(200,169,110,0.07);
+      border-color: rgba(200,169,110,0.18);
+      color: var(--gold-light);
+    }
+
+    .contact-btn.card-btn:hover {
+      background: rgba(200,169,110,0.14);
+      transform: translateY(-2px);
+    }
+
+    .contact-btn.card-btn .contact-btn-icon {
+      background: rgba(200,169,110,0.1);
+      color: var(--gold);
+    }
+
+    /* ═══════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════ */
+    .footer {
+      background: var(--black);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 56px 0 36px;
+    }
+
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .footer-brand-name {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--ivory);
+      margin-bottom: 8px;
+    }
+
+    .footer-brand-sub {
+      font-size: 0.72rem;
+      color: var(--gold);
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .footer-brand-desc {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.65;
+      margin-top: 16px;
+      max-width: 280px;
+    }
+
+    .footer-col-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-bottom: 18px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-links a {
+      font-size: 0.87rem;
+      color: var(--gray);
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--ivory); }
+
+    .footer-bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 48px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .footer-powered {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.2);
+    }
+
+    /* ═══════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      :root { --section-v: 80px; }
+      .container { padding: 0 28px; }
+      .nav-inner { padding: 0 28px; }
+      .hero-content { padding: 0 28px 72px; }
+      .about-inner { gap: 48px; }
+      .about-photo-badge { bottom: -12px; right: -12px; }
+      .trust-inner { grid-template-columns: repeat(2, 1fr); }
+      .trust-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .trust-item:nth-child(odd) { border-right: 1px solid rgba(255,255,255,0.05); }
+      .trust-item:last-child, .trust-item:nth-last-child(2) { border-bottom: none; }
+      .contact-inner { gap: 48px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .anim-sticky-inner { grid-template-columns: 1fr 260px; gap: 48px; }
+      .gallery-editorial { gap: 48px; }
+    }
+
+    @media (max-width: 768px) {
+      :root { --section-v: 64px; }
+      .container { padding: 0 20px; }
+      .nav-inner { padding: 0 20px; }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        inset: 72px 0 0;
+        background: rgba(10,10,10,0.98);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 32px;
+        backdrop-filter: blur(16px);
+      }
+
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 1.1rem; }
+      .nav-toggle { display: flex; }
+
+      .hero-bg { background-position: 40% 22%; }
+      .hero-content { padding: 0 20px 60px; max-width: 100%; }
+      .hero-scroll { display: none; }
+
+      .about-inner { grid-template-columns: 1fr; gap: 40px; }
+      .about-photo-wrap { max-width: 400px; margin: 0 auto; }
+      .about-photo-badge { right: 8px; }
+
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card { padding: 36px 28px; }
+
+      .anim-container { height: 200vh; }
+      .anim-sticky { height: auto; min-height: 100vh; align-items: flex-start; }
+      .anim-sticky-inner { grid-template-columns: 1fr; padding: 64px 20px; gap: 40px; }
+      .anim-text-side { order: 1; }
+      .anim-image-side { order: 2; justify-content: flex-start; }
+      .anim-image-frame { max-width: 220px; }
+
+      .gallery-editorial { grid-template-columns: 1fr; gap: 40px; }
+
+      .reviews-header { flex-direction: column; align-items: flex-start; gap: 16px; }
+      .reviews-divider { display: none; }
+      .reviews-grid { grid-template-columns: 1fr; }
+
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+
+      .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-bg { background-position: 35% 22%; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions .btn-primary,
+      .hero-actions .btn-outline,
+      .hero-actions .btn-gold-outline { width: 100%; justify-content: center; }
+      .trust-inner { grid-template-columns: 1fr; }
+      .trust-item { border-right: none; }
+      .trust-item:nth-child(odd) { border-right: none; }
+      .trust-item:last-child, .trust-item:nth-last-child(2) { border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .trust-item:last-child { border-bottom: none; }
+      .anim-image-frame { max-width: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════════ -->
+  <nav class="nav" id="mainNav">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-main">Polyphony Studios</span>
+        <span class="nav-logo-sub">Devon Pruett</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks" role="list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#studio">Studio</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="../landing_page/" class="nav-cta">Contact Card</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════════
+       HERO
+  ════════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-bg" id="heroBg"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <p class="hero-eyebrow reveal">Polyphony Studios · Miami, FL</p>
+      <h1 class="hero-title reveal reveal-delay-1">
+        The Art of<br><em>Perfect Sound</em>
+      </h1>
+      <p class="hero-sub reveal reveal-delay-2">
+        Devon Pruett — University of Miami Graduate with over 30&nbsp;years
+        of piano expertise. Private instruction, tuning, repair, and music engineering
+        for students, performers, and families across Miami.
+      </p>
+      <div class="hero-actions reveal reveal-delay-3">
+        <a href="tel:+13057759967" class="btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6 6l.86-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2.03z"/>
+          </svg>
+          Call Devon
+        </a>
+        <a href="https://wa.me/13057759967" class="btn-outline" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="#services" class="btn-gold-outline">View Services</a>
+        <a href="https://www.thumbtack.com/fl/miami/piano-tuners/devon-piano-lessons-tuning/service/542810856320008202"
+           class="btn-outline" target="_blank" rel="noopener">Thumbtack Profile</a>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       TRUST STRIP
+  ════════════════════════════════════════ -->
+  <div class="trust">
+    <div class="trust-inner">
+      <div class="trust-item reveal">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 18V5l12-2v13"/>
+            <circle cx="6" cy="18" r="3"/>
+            <circle cx="18" cy="16" r="3"/>
+          </svg>
+        </div>
+        <div class="trust-copy">
+          <h3>Private Piano Instruction</h3>
+          <p>Beginners to advanced · All ages</p>
+        </div>
+      </div>
+      <div class="trust-item reveal reveal-delay-1">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+        </div>
+        <div class="trust-copy">
+          <h3>Piano Tuning &amp; Repair</h3>
+          <p>30+ years of expertise · Miami area</p>
+        </div>
+      </div>
+      <div class="trust-item reveal reveal-delay-2">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+            <line x1="12" y1="19" x2="12" y2="23"/>
+            <line x1="8" y1="23" x2="16" y2="23"/>
+          </svg>
+        </div>
+        <div class="trust-copy">
+          <h3>Music Engineering</h3>
+          <p>Recording &amp; production support</p>
+        </div>
+      </div>
+      <div class="trust-item reveal reveal-delay-3">
+        <div class="trust-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"/>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+        <div class="trust-copy">
+          <h3>Pre-Purchase Consultation</h3>
+          <p>Piano inspection &amp; buying guidance</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       ABOUT
+  ════════════════════════════════════════ -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-photo-wrap reveal">
+          <img
+            src="devon-headshot.png"
+            alt="Devon Pruett — Polyphony Studios"
+            class="about-photo"
+            loading="lazy"
+          >
+          <div class="about-photo-badge">
+            <div class="about-photo-badge-num">30+</div>
+            <div class="about-photo-badge-label">Years of Expertise</div>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <p class="section-label reveal">About Devon</p>
+          <div class="gold-rule reveal"></div>
+          <h2 class="section-title reveal">A Lifetime Devoted<br>to the Piano</h2>
+
+          <div class="about-body reveal reveal-delay-1">
+            <p>
+              Devon Pruett brings over 30&nbsp;years of hands-on piano expertise to
+              every appointment — from intimate lessons with first-time students
+              to precise tuning sessions for longstanding clients who have trusted
+              him for decades. A University of Miami graduate and the inheritor of
+              a family piano service tradition spanning 50&nbsp;years, Devon has
+              become one of Miami's most respected names in piano care and
+              music education.
+            </p>
+            <p>
+              His students range from young children discovering the keyboard for
+              the first time to adult learners returning to music after years away.
+              Devon has a particular passion for working with students with special
+              needs, incorporating Music Therapy principles to help them build
+              lifelong skills alongside their musical growth.
+            </p>
+            <p>
+              As a multi-instrumentalist, Devon coaches piano, voice, trumpet,
+              ukulele, and more — always meeting students where they are and
+              guiding them toward where they want to be.
+            </p>
+          </div>
+
+          <div class="about-quote reveal reveal-delay-2">
+            <p>"A great sound is worth a million words."</p>
+            <cite>— Devon Pruett</cite>
+          </div>
+
+          <div class="about-credentials reveal reveal-delay-3">
+            <span class="cred-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              University of Miami Graduate
+            </span>
+            <span class="cred-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Background Checked
+            </span>
+            <span class="cred-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Family Business · 50 Years
+            </span>
+            <span class="cred-pill">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              Exceptional 5.0 on Thumbtack
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       SERVICES
+  ════════════════════════════════════════ -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="services-header">
+        <p class="section-label reveal">What Devon Offers</p>
+        <div class="gold-rule reveal" style="margin: 0 auto 24px;"></div>
+        <h2 class="section-title reveal" style="color: var(--ivory);">Services</h2>
+        <p class="section-sub reveal reveal-delay-1" style="margin: 16px auto 0; color: var(--gray-light);">
+          Every service is delivered with 30&nbsp;years of expertise, genuine care, and
+          the precision that comes from a lifetime devoted to the instrument.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- Service 1: Private Piano Instruction -->
+        <div class="service-card reveal">
+          <div class="service-num">01</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Private Piano<br>Instruction</h3>
+          <p class="service-desc">
+            Whether you're just beginning or refining advanced technique, Devon tailors every
+            lesson to your goals, pace, and musical personality. Students of all ages — from
+            young children to adult learners — develop genuine fundamentals, musical
+            confidence, and a real love of playing. Classical, Pop, Jazz, and more.
+            Lessons offered at Devon's studio or at your location.
+          </p>
+        </div>
+
+        <!-- Service 2: Piano Tuning & Repair -->
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-num">02</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Piano Tuning<br>&amp; Repair</h3>
+          <p class="service-desc">
+            A well-tuned piano is the foundation of every great performance. Devon has been
+            keeping Miami pianos in peak condition for over 30&nbsp;years — carrying on a
+            family tuning tradition that spans 50. He offers precise tuning, regulation,
+            and repair services that restore tone, stability, and warmth to your instrument,
+            whether it's a family upright or a concert grand.
+          </p>
+        </div>
+
+        <!-- Service 3: Music Engineering -->
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-num">03</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+              <line x1="12" y1="19" x2="12" y2="23"/>
+              <line x1="8" y1="23" x2="16" y2="23"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Music<br>Engineering</h3>
+          <p class="service-desc">
+            With deep musical knowledge and technical proficiency, Devon provides music
+            engineering support for recording sessions, production projects, and
+            sound-forward creative work. He brings a working musician's ear to every
+            technical decision — ensuring that what you capture reflects the quality
+            and character of the performance.
+          </p>
+        </div>
+
+        <!-- Service 4: Pre-Purchase Inspection -->
+        <div class="service-card reveal reveal-delay-3">
+          <div class="service-num">04</div>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+          </div>
+          <h3 class="service-title">Pre-Purchase Piano Inspection<br>&amp; Buying Consultation</h3>
+          <p class="service-desc">
+            Thinking about buying a piano? Before you commit, have Devon evaluate the
+            instrument. He assesses condition, tuning requirements, mechanical wear,
+            playability, and overall value — giving you an honest, knowledgeable
+            picture of exactly what you're buying. His guidance helps families,
+            students, and institutions make confident, well-informed piano investments.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       SCROLL ANIMATION SECTION
+  ════════════════════════════════════════ -->
+  <section class="anim-section" id="studio">
+    <div class="anim-container" id="animContainer">
+      <div class="anim-sticky">
+        <div class="anim-sticky-inner">
+
+          <!-- LEFT: Text -->
+          <div class="anim-text-side">
+            <p class="anim-section-label">In the Studio</p>
+            <div class="anim-gold-rule"></div>
+            <h2 class="anim-heading">Devon Pruett<br>at the Piano</h2>
+            <p class="anim-quote" id="animQuote">Thirty years of craft, one note at a time — Devon brings the same presence and care to every student, every instrument, and every performance.</p>
+            <p class="anim-sub">Devon Pruett · Polyphony Studios</p>
+            <div class="anim-progress">
+              <div class="anim-progress-track">
+                <div class="anim-progress-fill" id="animProgressFill"></div>
+              </div>
+              <span class="anim-progress-label">Scroll to explore</span>
+            </div>
+          </div>
+
+          <!-- RIGHT: Animated image -->
+          <div class="anim-image-side">
+            <div class="anim-image-frame">
+              <img
+                id="animFrame"
+                src="Animation/frame_00_delay-0.1s.gif"
+                alt="Devon Pruett at the piano — Polyphony Studios"
+              >
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       GALLERY
+  ════════════════════════════════════════ -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="gallery-editorial">
+
+        <div class="gallery-editorial-text">
+          <p class="section-label reveal">The Studio</p>
+          <div class="gold-rule reveal"></div>
+          <h2 class="section-title reveal">Music, Craft &amp;<br>Community</h2>
+          <p class="section-sub reveal reveal-delay-1">
+            Devon brings his passion for music into every room — from classroom to concert hall,
+            lesson to recording session. At Polyphony Studios, every instrument is treated with
+            the care of a craftsman and the ear of a performer.
+          </p>
+        </div>
+
+        <div class="gallery-editorial-image reveal reveal-delay-2">
+          <img
+            src="devon-studio.png"
+            alt="Devon Pruett — Polyphony Studios, Miami"
+            class="gallery-editorial-img"
+            loading="lazy"
+          >
+          <div class="gallery-editorial-caption">
+            <span>Devon Pruett · Polyphony Studios · Miami, FL</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       REVIEWS
+  ════════════════════════════════════════ -->
+  <section class="reviews" id="reviews">
+    <div class="container">
+      <div class="reviews-header">
+        <div class="reviews-score">
+          <div class="reviews-score-num">5.0</div>
+          <div class="reviews-score-stars">★★★★★</div>
+          <div class="reviews-score-label">Exceptional · 5 Reviews</div>
+        </div>
+        <div class="reviews-divider"></div>
+        <div class="reviews-desc">
+          <h2 class="section-title">What Clients Say</h2>
+          <p>Rated highly for punctuality, professionalism, and work quality on Thumbtack.</p>
+        </div>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"When he showed up, it was like connecting with an old friend. He was quite personable, knowledgeable, and he didn't rush his process. I would highly recommend him for his musical services."</p>
+          <div class="review-author">
+            <div class="review-avatar">D</div>
+            <div>
+              <div class="review-name">Dee A.</div>
+              <div class="review-date">May 2025 · Thumbtack</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal reveal-delay-1">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"I've had my piano tuned once a year for the last 25 years with Devon and he is always professional and punctual. In Miami he does the best job and is the most affordable and consistently reliable."</p>
+          <div class="review-author">
+            <div class="review-avatar">B</div>
+            <div>
+              <div class="review-name">Bryon P.</div>
+              <div class="review-date">April 2025 · Thumbtack</div>
+            </div>
+          </div>
+        </div>
+        <div class="review-card reveal reveal-delay-2">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"I wish I could choose all 5 options here, Devon is awesome! Whether it's teaching lessons, or for piano tuning, he gets 5 stars. There's no one that can keep kids' attention like Devon."</p>
+          <div class="review-author">
+            <div class="review-avatar">J</div>
+            <div>
+              <div class="review-name">Jessica S.</div>
+              <div class="review-date">April 2025 · Thumbtack</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       CONTACT
+  ════════════════════════════════════════ -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-inner">
+        <div class="contact-text">
+          <p class="section-label reveal">Get in Touch</p>
+          <div class="gold-rule reveal"></div>
+          <h2 class="section-title reveal">Ready to Begin?</h2>
+          <p class="section-sub reveal reveal-delay-1">
+            Whether you're looking for your first lesson, need your piano tuned,
+            or want guidance before purchasing an instrument — Devon is ready to help.
+          </p>
+          <div class="contact-detail reveal reveal-delay-2">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6 6l.86-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2.03z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-detail-label">Phone</div>
+              <div class="contact-detail-value">(305) 775-9967</div>
+            </div>
+          </div>
+          <div class="contact-detail reveal reveal-delay-3" style="margin-top: 16px;">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-detail-label">Service Area</div>
+              <div class="contact-detail-value">Miami, FL &amp; Surrounding Areas</div>
+            </div>
+          </div>
+          <div class="contact-detail reveal reveal-delay-3" style="margin-top: 16px;">
+            <div class="contact-detail-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="4" width="22" height="16" rx="2" ry="2"/>
+                <line x1="1" y1="10" x2="23" y2="10"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-detail-label">Payment</div>
+              <div class="contact-detail-value">Cash · PayPal · Venmo · Zelle</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-actions reveal reveal-delay-1">
+          <a href="tel:+13057759967" class="contact-btn call-btn">
+            <div class="contact-btn-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.24h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6 6l.86-.95a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7 2 2 0 0 1 1.72 2.03z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-btn-label">Call Now</div>
+              <div class="contact-btn-value">(305) 775-9967</div>
+            </div>
+          </a>
+
+          <a href="https://wa.me/13057759967" class="contact-btn wa-btn" target="_blank" rel="noopener">
+            <div class="contact-btn-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-btn-label">WhatsApp</div>
+              <div class="contact-btn-value">Send a Message</div>
+            </div>
+          </a>
+
+          <a href="https://www.thumbtack.com/fl/miami/piano-tuners/devon-piano-lessons-tuning/service/542810856320008202"
+             class="contact-btn tt-btn" target="_blank" rel="noopener">
+            <div class="contact-btn-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6H8v-2h8v2h-3v6z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-btn-label">Book via Thumbtack</div>
+              <div class="contact-btn-value">View Profile &amp; Reviews</div>
+            </div>
+          </a>
+
+          <a href="../landing_page/" class="contact-btn card-btn">
+            <div class="contact-btn-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="5" width="18" height="14" rx="2"/>
+                <circle cx="8.5" cy="11" r="1.5"/>
+                <polyline points="12 11 16 11"/>
+                <polyline points="12 14 16 14"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-btn-label">Digital Contact Card</div>
+              <div class="contact-btn-value">Save to Your Phone</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand-name">Polyphony Studios</div>
+          <div class="footer-brand-sub">Devon Pruett</div>
+          <p class="footer-brand-desc">
+            Private Piano Instruction, Piano Tuning &amp; Repair, Music Engineering,
+            and Pre-Purchase Piano Consultation. Serving Miami, FL and surrounding areas.
+          </p>
+        </div>
+        <div>
+          <div class="footer-col-title">Services</div>
+          <ul class="footer-links">
+            <li><a href="#services">Private Piano Instruction</a></li>
+            <li><a href="#services">Piano Tuning &amp; Repair</a></li>
+            <li><a href="#services">Music Engineering</a></li>
+            <li><a href="#services">Pre-Purchase Consultation</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="tel:+13057759967">(305) 775-9967</a></li>
+            <li><a href="https://wa.me/13057759967" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a href="https://www.thumbtack.com/fl/miami/piano-tuners/devon-piano-lessons-tuning/service/542810856320008202" target="_blank" rel="noopener">Thumbtack Profile</a></li>
+            <li><a href="../landing_page/">Contact Card</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 Devon Pruett · Polyphony Studios · Miami, FL</p>
+        <p class="footer-powered">Powered by <strong style="color:rgba(255,255,255,0.3)">Digital Cards Panama</strong></p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════ -->
+  <script>
+    (function () {
+      'use strict';
+
+      // ── Nav scroll effect ──
+      const nav = document.getElementById('mainNav');
+      const heroBg = document.getElementById('heroBg');
+
+      // Set hero background via JS so it's loaded after paint
+      if (heroBg) {
+        const img = new Image();
+        img.onload = () => {
+          heroBg.style.backgroundImage = "url('devon-teaching.png')";
+          requestAnimationFrame(() => heroBg.classList.add('loaded'));
+        };
+        img.src = 'devon-teaching.png';
+      }
+
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 60) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }, { passive: true });
+
+      // ── Mobile nav toggle ──
+      const navToggle = document.getElementById('navToggle');
+      const navLinks = document.getElementById('navLinks');
+
+      navToggle.addEventListener('click', function () {
+        const isOpen = navLinks.classList.toggle('open');
+        navToggle.setAttribute('aria-expanded', isOpen);
+      });
+
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('open');
+          navToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // ── Reveal on scroll ──
+      const revealEls = document.querySelectorAll('.reveal');
+      const revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+      revealEls.forEach(el => revealObserver.observe(el));
+
+      // ── Sticky scroll animation ──
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const animContainer = document.getElementById('animContainer');
+      const animFrame = document.getElementById('animFrame');
+      const animProgressFill = document.getElementById('animProgressFill');
+      const animQuote = document.getElementById('animQuote');
+
+      // Sampled frames: every 4th from 0-36, plus last frame 39
+      const frameNums = [0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 39];
+      const frameSrcs = frameNums.map(n =>
+        'Animation/frame_' + String(n).padStart(2, '0') + '_delay-0.1s.gif'
+      );
+
+      const quotes = [
+        'Thirty years of craft, one note at a time — Devon brings the same presence and care to every student, every instrument, and every performance.',
+        'From early beginners to seasoned performers, every lesson is shaped around where you are and where you want to go.',
+        'A beautifully tuned piano is worth a thousand words — and the right ear makes all the difference.'
+      ];
+
+      let currentFrameIndex = -1;
+
+      if (prefersReducedMotion) {
+        // Show static frame, no animation
+        animFrame.src = frameSrcs[0];
+      } else {
+        // Preload all selected frames
+        frameSrcs.forEach(src => {
+          const img = new Image();
+          img.src = src;
+        });
+
+        function updateAnimation() {
+          if (!animContainer) return;
+
+          const rect = animContainer.getBoundingClientRect();
+          const scrolled = -rect.top;
+          const totalScroll = animContainer.offsetHeight - window.innerHeight;
+
+          if (scrolled < 0 || scrolled > totalScroll + window.innerHeight) return;
+
+          const progress = Math.max(0, Math.min(1, scrolled / totalScroll));
+          const frameIndex = Math.round(progress * (frameSrcs.length - 1));
+
+          // Update progress indicator
+          if (animProgressFill) {
+            animProgressFill.style.width = (progress * 100) + '%';
+          }
+
+          // Update frame only when it changes
+          if (frameIndex !== currentFrameIndex) {
+            currentFrameIndex = frameIndex;
+            animFrame.src = frameSrcs[frameIndex];
+
+            // Swap quote at ~1/3 and ~2/3 progress
+            if (animQuote) {
+              const quoteIndex = progress < 0.33 ? 0 : progress < 0.67 ? 1 : 2;
+              animQuote.textContent = quotes[quoteIndex];
+            }
+          }
+        }
+
+        window.addEventListener('scroll', updateAnimation, { passive: true });
+        updateAnimation(); // initial call
+      }
+
+    })();
+  </script>
+
+</body>
+</html>

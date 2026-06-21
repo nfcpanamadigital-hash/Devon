@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://devon-gamma.vercel.app/sitemap.xml

@@ -1,8 +1,7 @@
 {
   "cleanUrls": false,
   "redirects": [
-    { "source": "/website", "destination": "/Website/", "permanent": false },
-    { "source": "/website/:path*", "destination": "/Website/:path*", "permanent": false },
+    { "source": "/website", "destination": "/website/", "permanent": false },
     { "source": "/landing_page", "destination": "/landing_page/", "permanent": false }
   ]
 }
